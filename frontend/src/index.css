@@ -1,0 +1,146 @@
+@import-normalize;
+
+/* positioning, display and box model, font, color */
+/* TODO: handle hovering for phone */
+
+/************** || GENERAL STYLES **************/
+
+* {
+  font-family: 'Courier New', Courier, monospace;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 2.4vh;
+  color: whitesmoke;
+  background-color: black;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+textarea {
+  font-size: 3vh;
+  font-family: monospace;
+  text-transform: uppercase;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 35px;
+  border: 1px solid white;
+  border-radius: 5px;
+  font-size: 2.5vh;
+  font-weight: bold;
+  text-transform: uppercase;
+  color:white;
+  background-color: black;
+}
+
+button:hover {
+  cursor: pointer;
+  color: black;
+  background-color: white;
+}
+
+/************** || HOME STYLING **************/
+
+.App {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: -8px 12%;
+}
+
+.menu {
+  position: absolute;
+  top: 3%;
+  right: 2%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.menu:hover {
+  background-color: goldenrod;
+}
+
+.menu-details {
+  display: none;
+  position: absolute;
+  top: 7%;
+  right: 1%;
+  font-size: 2vh;
+}
+
+.menu:hover + .menu-details {
+    display: block;
+    text-align:center;
+}
+
+.text-block {
+  min-width: 300px;
+  min-height: 100px;
+  padding: 15px;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+}
+
+.text-block:hover {
+  cursor: pointer;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+.cannot-edit {
+  position: absolute;
+  top: 23%;
+  font-size: 3vh;
+  color: red;
+}
+
+.cannot-edit:hover {
+  cursor: pointer;
+}
+
+.close-x {
+  color: grey;
+}
+
+.cannot-edit:hover .close-x {
+  color: white;
+}
+
+/************** || MEDIA QUERIES **************/
+
+@media screen and (min-width: 400px) {
+  div {
+    font-size: 2.7vh;
+  }
+}
+
+@media screen and (min-width: 520px) {
+  div {
+    font-size: 3vh;
+  }
+}
+
+@media screen and (min-width: 660px) {
+  div {
+    font-size: 3.4vh;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  div {
+    font-size: 4vh;
+  }
+}
