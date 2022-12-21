@@ -14,7 +14,7 @@ function App() {
 
   // update text states with data from backend
   useEffect(() => {
-    fetch("http://localhost:8080")
+    fetch("https://milkwall-backend.fly.dev/")
       .then((res) => res.json())
       .then((data) => setTextContents(data["textBlock"]));
     setEditingText(textContents);
@@ -22,7 +22,7 @@ function App() {
 
   // post text edits to backend & update frontend text states
   const editHandler = () => {
-    fetch("http://localhost:8080", {
+    fetch("https://milkwall-backend.fly.dev/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ textBlock: editingText }),
@@ -35,7 +35,7 @@ function App() {
 
   // Ask backend if an edit happened in the past 10 mins. If so, disallow edits and change error message state. If not, allow editing.
   function handleTextClick() {
-    fetch("http://localhost:8080", {
+    fetch("https://milkwall-backend.fly.dev/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ textBlock: editingText }),
