@@ -6,6 +6,7 @@ app.use(cors());
 app.use(express.json());
 const PORT = 8080;
 const DB_FILE = "db.json";
+// if changing time limit below, also change messages in frontend
 const TIME_LIMIT = 60000 * 1;
 const TIME_LIMIT_MESSAGE = "1 minute has not passed since the last edit.";
 
