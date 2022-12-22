@@ -1,33 +1,33 @@
 /* TODO
   add remaining char count above edit field
   add cancel editing option
-  don't allow blank
+  don't allow blank setting
   timeout edit field (3 mins)
+  remove error message if 10 mins have passed/change to timer
 */
 import { useState, useEffect } from "react";
 
 function App() {
   const [isEditing, setIsEditing] = useState(false);
-  const [textContents, setTextContents] = useState(" ");
-  const [editingText, setEditingText] = useState(textContents);
   const [cannotEditMessage, setCannotEditMessage] = useState(false);
+  const [textContents, setTextContents] = useState(" ");
 
-  // update text states with data from backend
+  // on load/render, get database text and set textContents
   useEffect(() => {
     fetch("https://milkwall-backend.fly.dev/")
       .then((res) => res.json())
-      .then((data) => setTextContents(data["textBlock"]));
-    setEditingText(textContents);
-  }, [textContents]);
+      .then((data) => {
+        setTextContents(data["textBlock"]);
+      });
+  }, []);
 
-  // post text edits to backend & update frontend text states
+  // on submit click, post textContents to database
   const editHandler = () => {
     fetch("https://milkwall-backend.fly.dev/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ textBlock: editingText }),
+      body: JSON.stringify({ textBlock: textContents }),
     });
-    setTextContents(editingText);
   };
 
   // check if there are so few spaces, text needs to be broken up to keep it from going out of viewport
@@ -35,11 +35,7 @@ function App() {
 
   // Ask backend if an edit happened in the past 10 mins. If so, disallow edits and change error message state. If not, allow editing.
   function handleTextClick() {
-    fetch("https://milkwall-backend.fly.dev/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ textBlock: editingText }),
-    })
+    fetch("https://milkwall-backend.fly.dev/")
       .then((res) => {
         if (res.status !== 401) {
           return res.json();
@@ -85,8 +81,8 @@ function App() {
               rows="6"
               cols="80"
               maxLength={400}
-              value={editingText}
-              onChange={(e) => setEditingText(e.target.value)}
+              value={textContents}
+              onChange={(e) => setTextContents(e.target.value)}
             />
           ) : (
             <div
