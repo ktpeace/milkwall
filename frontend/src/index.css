@@ -122,9 +122,23 @@ button:hover {
 
 /************** || MEDIA QUERIES **************/
 
-@media (min-width: 1px) {
-  div {
-    font-size: 2.7vh;
+@media (min-width: 0px) {
+  .text-block {
+    font-size: 2.3vh;
+    padding: 30px;
+  }
+  .menu {
+    right: 10%;
+  }
+  .menu-details {
+    right: 3%;
+  }
+}
+
+@media (min-width: 300px) {
+  .text-block {
+    font-size: 2.3vh;
+    padding: 0;
   }
   .cannot-edit {
     max-width: 250px;
@@ -132,6 +146,12 @@ button:hover {
   }
   textarea {
     width: 90%;
+  }
+  .menu {
+    right: 10%;
+  }
+  .menu-details {
+    right: 3%;
   }
 }
 
@@ -172,5 +192,11 @@ button:hover {
   }
   textarea {
     width: 100%;
+  }
+  .menu {
+    right: 7%;
+  }
+  .menu-details {
+    right: 5%;
   }
 }
