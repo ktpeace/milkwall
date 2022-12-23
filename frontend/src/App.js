@@ -15,8 +15,12 @@ function App() {
   // on load/render, get database text and set textContents
   useEffect(() => {
     fetch("https://milkwall.fly.dev/")
-      .then((res) => res.json())
+      .then((res) => {
+        console.log("response:", res);
+        res.json();
+      })
       .then((data) => {
+        console.log("backend data: ", data);
         setTextContents(data["textBlock"]);
       })
       .catch((err) => console.log(err));
