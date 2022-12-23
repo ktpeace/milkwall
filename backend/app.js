@@ -11,6 +11,7 @@ const TIME_LIMIT = 60000 * 1;
 const TIME_LIMIT_MESSAGE = "1 minute has not passed since the last edit.";
 
 app.get("/", (req, res) => {
+  console.log("get req:", req);
   const data = fs.readFileSync(DB_FILE);
   res.status(200);
   res.setHeader("Content-Type", "application/json");
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
 // create new JSON object with req text & current time
 // allow edit if time limit has passed
 app.post("/", (req, res) => {
+  console.log("post req:", req);
   const data = fs.readFileSync(DB_FILE);
   const newTextBlock = req.body["textBlock"];
   const newTime = Date.now();
@@ -43,6 +45,7 @@ app.post("/", (req, res) => {
 // temporary solution for checking if enough time has passed for edits
 // without changing timestamp
 app.put("/", (req, res) => {
+  console.log("put req:", req);
   const data = fs.readFileSync(DB_FILE);
   const newTime = Date.now();
   const parsedData = JSON.parse(data);

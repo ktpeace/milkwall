@@ -1,6 +1,6 @@
 This is a single-page app whose text anyone can edit for all visitors.
 
-# MILKWALL: The Global Wall of Text
+# 🐮 MILKWALL: The Global Wall of Text
 
 ![screenshot](./frontend/images/milkwall.jpg "project screenshot")
 
@@ -42,6 +42,7 @@ This is a single-page app whose text anyone can edit for all visitors.
 - don't allow text to be reduced to empty string/only spaces
 - timeout edit field after sitting over 3 mins
 - remove error message if 10 mins have passed or change to a countdown timer
+- make text content rerender for all visitors when text is edited by anyone
 
 ## Running the Project Locally
 

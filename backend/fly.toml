@@ -1,6 +1,6 @@
-# fly.toml file generated for milkwall-backend on 2022-12-22T21:23:13-05:00
+# fly.toml file generated for milkwall on 2022-12-22T22:53:46-05:00
 
-app = "milkwall-backend"
+app = "milkwall"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
