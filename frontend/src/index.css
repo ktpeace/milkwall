@@ -6,7 +6,7 @@
 /************** || GENERAL STYLES **************/
 
 * {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   box-sizing: border-box;
 }
 
@@ -39,7 +39,7 @@ button {
   font-size: 2.5vh;
   font-weight: bold;
   text-transform: uppercase;
-  color:white;
+  color: white;
   background-color: black;
 }
 
@@ -82,8 +82,8 @@ button:hover {
 }
 
 .menu:hover + .menu-details {
-    display: block;
-    text-align:center;
+  display: block;
+  text-align: center;
 }
 
 .text-block {
@@ -121,9 +121,13 @@ button:hover {
 
 /************** || MEDIA QUERIES **************/
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 1px) {
   div {
     font-size: 2.7vh;
+  }
+  .cannot-edit {
+    max-width: 250px;
+    font-size: 2vh;
   }
 }
 
@@ -131,16 +135,29 @@ button:hover {
   div {
     font-size: 3vh;
   }
+  .cannot-edit {
+    max-width: 100%;
+    font-size: 2vh;
+  }
 }
 
 @media screen and (min-width: 660px) {
   div {
     font-size: 3.4vh;
   }
+  .cannot-edit {
+    max-width: 100%;
+    top: 20%;
+    font-size: 2.5vh;
+  }
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 910px) {
   div {
     font-size: 4vh;
+  }
+  .cannot-edit {
+    max-width: 100%;
+    font-size: 3vh;
   }
 }
