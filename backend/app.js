@@ -6,7 +6,7 @@ app.use(cors());
 app.use(express.json());
 const PORT = 8080;
 const DB_FILE = "db.json";
-// if changing time limit below, also change messages in frontend
+// if you change time limit below, also change messages in frontend
 const TIME_LIMIT = 60000 * 1;
 const TIME_LIMIT_MESSAGE = "1 minute has not passed since the last edit.";
 
@@ -34,6 +34,21 @@ app.post("/", (req, res) => {
     res.status(200);
     res.setHeader("Content-Type", "application/json");
     res.json(textBlock);
+  } else {
+    res.status(401);
+    res.json(TIME_LIMIT_MESSAGE);
+  }
+});
+
+// temporary solution for checking if enough time has passed for edits
+// without changing timestamp
+app.put("/", (req, res) => {
+  const data = fs.readFileSync(DB_FILE);
+  const newTime = Date.now();
+  const parsedData = JSON.parse(data);
+  if (newTime - parsedData["time"] >= TIME_LIMIT) {
+    res.status(200);
+    res.json();
   } else {
     res.status(401);
     res.json(TIME_LIMIT_MESSAGE);

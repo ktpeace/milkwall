@@ -36,18 +36,18 @@ function App() {
   // Ask backend if an edit happened in the past 10 mins. If so, disallow edits and change error message state. If not, allow editing.
   function handleTextClick() {
     fetch("https://milkwall-backend.fly.dev/", {
-      method: "POST",
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ textBlock: textContents }),
-    })
-      .then((res) => {
-        if (res.status !== 401) {
-          return res.json();
-        }
-        throw new Error("1 min has not passed");
-      })
-      .then((data) => setIsEditing(true))
-      .catch((err) => setCannotEditMessage(true));
+    }).then((res) => {
+      if (res.status !== 401) {
+        setIsEditing(true);
+        setCannotEditMessage(false);
+        return;
+      }
+      setCannotEditMessage(true);
+      throw new Error("10 mins have not passed");
+    });
   }
 
   return (
