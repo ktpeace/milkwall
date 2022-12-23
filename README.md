@@ -47,9 +47,10 @@ This is a single-page app whose text anyone can edit for all visitors.
 ## Running the Project Locally
 
 1. Clone from Github
-2. `cd` into backend/ in bash/command line
-3. `npm install` to install dependencies
-4. `node app.js` to start backend server
-5. `cd` into frontend/ in bash/command line
-6. `npm install` to install dependencies
-7. `npm start` to run the app in development mode
+2. Change App.js URLs from 'https://milkwall.fly.dev/' to 'http://localhost:8080/'
+3. `cd` into backend/ in bash/command line
+4. `npm install` to install dependencies
+5. `node app.js` to start backend server
+6. `cd` into frontend/ in bash/command line
+7. `npm install` to install dependencies
+8. `npm start` to run the app in development mode
