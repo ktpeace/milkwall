@@ -1,5 +1,3 @@
-This is a single-page app whose text anyone can edit for all visitors.
-
 # 🐮 MILKWALL: The Global Wall of Text
 
 ![screenshot](./frontend/images/milkwall.jpg "project screenshot")
