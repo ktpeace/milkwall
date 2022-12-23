@@ -18,7 +18,8 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         setTextContents(data["textBlock"]);
-      });
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   // on submit click, post textContents to database
