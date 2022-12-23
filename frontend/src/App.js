@@ -17,11 +17,11 @@ function App() {
     fetch("https://milkwall.fly.dev/")
       .then((res) => {
         console.log("response:", res);
-        res.json();
+        return res.json();
       })
       .then((data) => {
         console.log("backend data: ", data);
-        setTextContents(data["textBlock"]);
+        return setTextContents(data["textBlock"]);
       })
       .catch((err) => console.log(err));
   }, []);
