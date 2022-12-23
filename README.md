@@ -8,7 +8,7 @@
 
 ## Features
 
-- Displays text edits immediately
+- Processes text edits & updates site immediately (needs refresh)
 - Backend database globalizes text contents securely
 - Disallows edits until 1 minute has passed to allow others to view changes
 - Sizes responsively for different viewports/browser window minimization
