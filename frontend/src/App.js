@@ -7,29 +7,6 @@
 */
 import { useState, useEffect } from "react";
 
-import * as Sentry from "@sentry/browser";
-import { BrowserTracing } from "@sentry/tracing";
-
-Sentry.init({
-  dsn: "https://d96276ec60d64862a8f91433d024e338@o4504379856912384.ingest.sentry.io/4504379864449024",
-  integrations: [new BrowserTracing()],
-
-  // Set tracesSampleRate to 1.0 to capture 100%
-  // of transactions for performance monitoring.
-  // We recommend adjusting this value in production
-  tracesSampleRate: 1.0,
-});
-
-Sentry.init({
-  dsn: "https://c765100cd87b4f748da16da96b53adc3@o4504379856912384.ingest.sentry.io/4504379864514560",
-  integrations: [new BrowserTracing()],
-
-  // Set tracesSampleRate to 1.0 to capture 100%
-  // of transactions for performance monitoring.
-  // We recommend adjusting this value in production
-  tracesSampleRate: 1.0,
-});
-
 function App() {
   const [isEditing, setIsEditing] = useState(false);
   const [cannotEditMessage, setCannotEditMessage] = useState(false);
