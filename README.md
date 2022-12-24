@@ -37,6 +37,7 @@
 
 - add remaining char count above edit field
 - add cancel editing button
+- make site more screen reader accessible
 - don't allow text to be reduced to empty string/only spaces
 - timeout edit field after sitting over 3 mins
 - remove error message if 10 mins have passed or change to a countdown timer
